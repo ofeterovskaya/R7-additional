@@ -14,6 +14,15 @@
     <% if flash[:alert].present? %>
       <p class="my_alert"><%= flash[:alert] %></p>
     <% end %>
-    <%= yield %>
+    <div class="container-fluid p-0 m-0">
+      <!-- Banner Start -->
+      <div class="custom-banner">
+        <h1 class="display-4">Banner for Ruby</h1>
+        <p class="lead">This is Ruby class and I'm learning how Boostrap is working with Ruby</p>
+      </div>
+      <!-- Banner End -->
+
+      <%= yield %>
+    </div>
   </body>
 </html>
