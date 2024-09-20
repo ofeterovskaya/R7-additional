@@ -11,18 +11,59 @@
   </head>
 
   <body>
-    <% if flash[:alert].present? %>
-      <p class="my_alert"><%= flash[:alert] %></p>
-    <% end %>
     <div class="container-fluid p-0 m-0">
       <!-- Banner Start -->
-      <div class="custom-banner">
+      <div class="custom-banner text-end py-4">
         <h1 class="display-4">Banner for Ruby</h1>
-        <p class="lead">This is Ruby class and I'm learning how Boostrap is working with Ruby</p>
+        <p class="lead">This is Ruby class and how Bootstrap is working with Ruby</p>
       </div>
       <!-- Banner End -->
 
-      <%= yield %>
+      <!-- Flash Messages -->
+      <% if flash[:alert].present? %>
+        <div class="alert alert-danger" role="alert">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+
+      <% if flash[:notice].present? %>
+        <div class="alert alert-success" role="alert">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+
+      <!-- Navbar Start -->
+      <nav class="navbar navbar-expand-lg navbar-custom navbar-dark">
+        <a class="navbar-brand me-3" href="#">MyApp</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <!-- Left side links -->
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link me-3" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+          <!-- Right side dropdown -->
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle me-3" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Menu
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="<%= customers_path %>">Customers</a></li>
+                <li><a class="dropdown-item" href="<%= orders_path %>">Orders</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- Navbar End -->
+
+      <div class="body-content">
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>

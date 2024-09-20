@@ -14,39 +14,64 @@
  *= require_self
  */
  @import "bootstrap";
+ @import "font-awesome";
 
 .my_alert {
   color: red;
 }
 
 :root {
-  --bs-body-bg: #c5ccd4;
+  --bs-body-bg: #e1e5ea;
 }
 
 @font-face {
   font-family: 'Ubuntu-Regular';
-  src: url('/assets/fonts/Ubuntu-Regular.ttf') format('truetype'); /* Убедитесь, что путь правильный */
-  font-weight: normal;
-  font-style: normal;
+  src: url('Ubuntu-Regular.ttf') ;  
 }
 
 @font-face {
   font-family: 'Ubuntu-Italic';
-  src: url('/assets/fonts/Ubuntu-Italic.ttf') format('truetype'); 
-  font-weight: normal;
-  font-style: italic;
+  src: url('Ubuntu-Italic.ttf')  
 }
-
+@font-face {
+  font-family: 'Ubuntu-BoldItalic';
+  src: url('Ubuntu-BoldItalic.ttf')  
+}
+@font-face {
+  font-family: 'GaMaamli-Regular';
+  src: url('GaMaamli-Regular.ttf')  
+}
 .custom-banner {
   background-image: url('/assets/pic.jpg');
   background-size: cover;
   background-position: center;
   height: 300px;
   color: rgb(15, 15, 15);
-  display: flex;
+  display: block;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 2rem;
-  font-family: 'Ubuntu-Italic'; 
+  font-family: 'GaMaamli-Regular'; 
+}
+.navbar-custom {
+  background-color: #cc427e;
+}
+.body-content {
+  margin-left: 5rem;  
+  margin-right: 5rem;
+}
+.custom-button  {
+  background-color: #98d9f3;
+  &:hover {
+    background-color: darken(#55b3df, 5%);     
+  }
+}
+
+.custom-delete {
+  background-color: #f7a1c6;  
+  &:hover {
+    background-color: darken(#d8518b, 5%);
+    
+  }
 }

@@ -1,8 +1,12 @@
-<p style="color: green"><%= notice %></p>
+<% if flash[:notice].present? %>
+  <div class="alert alert-success" role="alert">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
 
-<h1>Customers</h1>
+<h1> <%= icon('fa-regular', 'user') %> Customers </h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -13,16 +17,18 @@
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-        <td><%= customer.name %></td>
-        <td><%= customer.email %></td>
+        <td><%= "#{customer.first_name} #{customer.last_name}" %></td>
+        <td><%= customer.email %></td>        
         <td>
-          <%= link_to 'Show', customer %> |
-          <%= link_to 'Edit', edit_customer_path(customer) %> |
-          <%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
+          <div class="d-flex">
+            <%= link_to 'Show', customer_path(customer), class: 'btn custom-button btn-sm me-2' %>
+            <%= link_to 'Edit', edit_customer_path(customer), class: 'btn custom-button btn-sm me-2' %>
+            <%= button_to 'Delete', customer_path(customer), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn custom-delete btn-sm' %>
+          </div>
+        </td>        
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to "New customer", new_customer_path %>
+<%= link_to "New Customer", new_customer_path, class: 'btn custom-button' %>
