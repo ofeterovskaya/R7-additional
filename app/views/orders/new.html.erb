@@ -2,4 +2,6 @@
 
 <%= render 'form', order: @order %>
 
-<%= link_to 'Back', orders_path %>
+<div class="d-flex align-items-center mt-3">
+  <%= link_to 'Back to Orders', orders_path, class: 'btn custom-button btn-sm me-2' %>
+</div>
